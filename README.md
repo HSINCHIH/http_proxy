@@ -1,21 +1,18 @@
 # http_proxy
-A proxy server that carries cookies for every forwarded HTTP request
+A proxy server that forwards HTTP and WebSocket requests while preserving cookies.
 
-* Run the proxy server
+* Install the necessary packages.
 ```bash
-$ python proxy_server.py
-Serving proxy on port 8080
+$ brew install node
+$ npm install http-proxy-middleware express
 ```
-* Test the GET method
+* Start the server, and stop it using [Ctrl + C] to terminate the process.
 ```bash
-$ curl -X GET "http://127.0.0.1:8080/?url=https://example.com"
+$ node proxy.js
 ```
-* Test the POST method
-```bash
-$ curl -X POST -d "key=value" "http://127.0.0.1:8080/?url=https://httpbin.org/post"
-```
-* Press Ctrl + C to stop the server.
-```bash
-Shutting down the proxy server gracefully...
-Proxy server has been shut down.
+* Modify the proxy server configuration if needed.
+```javascript
+// proxy.js
+const targetUrl = 'http://example.com';
+const PORT = 8080;
 ```
